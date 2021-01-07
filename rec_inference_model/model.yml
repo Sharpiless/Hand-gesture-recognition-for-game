@@ -1,0 +1,41 @@
+Model: MobileNetV3_small_ssld
+Transforms:
+- RandomCrop:
+    crop_size: 224
+    lower_ratio: 0.75
+    lower_scale: 0.08
+    upper_ratio: 1.3333333333333333
+- Normalize:
+    mean:
+    - 0.485
+    - 0.456
+    - 0.406
+    std:
+    - 0.229
+    - 0.224
+    - 0.225
+TransformsMode: RGB
+_Attributes:
+  eval_metrics:
+    acc1: 0.9161490683229814
+  fixed_input_shape: null
+  labels:
+  - pause
+  - down
+  - left
+  - right
+  - up
+  model_type: classifier
+  num_classes: 5
+_ModelInputsOutputs:
+  test_inputs:
+  - - image
+    - image
+  test_outputs:
+  - - predict
+    - softmax_0.tmp_0
+_init_params:
+  num_classes: 5
+completed_epochs: 0
+status: Infer
+version: 1.3.1
